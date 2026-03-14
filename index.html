@@ -36,7 +36,6 @@
 
         body {
             font-family: 'NeoDunggeunmoPro-Regular', sans-serif;
-            /* 더 맑고 청량한 천국 배경 */
             background: 
                 radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
                 linear-gradient(180deg, #74ebd5 0%, #9face6 100%);
@@ -131,7 +130,7 @@
         /* 메인 타이틀 */
         .dreamy-title {
             font-family: 'VT323', monospace;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             color: #ffffff;
             line-height: 1.1;
             text-align: center;
@@ -143,7 +142,7 @@
         }
         @media (min-width: 768px) { .dreamy-title { font-size: 5.5rem; } }
 
-        /* 카드 디자인 */
+        /* 카드 디자인 (반응형: 모바일은 flex-row, PC는 flex-col) */
         .glass-card {
             background: rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(10px);
@@ -153,7 +152,9 @@
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             overflow: hidden; 
+            display: flex;
         }
+        
         .glass-card::before {
             content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
             background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
@@ -198,7 +199,7 @@
         }
         .cute-bubble-title {
             position: absolute; top: -12px; left: 8px;
-            background: #a1c4fd; color: #fff; font-size: 11px;
+            background: #a1c4fd; color: #fff; font-size: 10px;
             padding: 3px 8px; border-radius: 8px; font-weight: bold;
             box-shadow: 2px 2px 0px rgba(0,0,0,0.08);
             transform: rotate(-2deg);
@@ -206,7 +207,7 @@
             z-index: 10;
         }
 
-        /* 아장 스페셜 카드용 숨쉬는 광채 효과 (크기 변화 scale 삭제) */
+        /* 아장 스페셜 카드용 숨쉬는 광채 효과 */
         @keyframes pulseShadow {
             0% { box-shadow: 0 0 0 4px rgba(255, 182, 193, 0.4), 0 20px 50px rgba(0, 50, 150, 0.15); }
             50% { box-shadow: 0 0 0 12px rgba(255, 182, 193, 0.7), 0 20px 60px rgba(0, 50, 150, 0.25); }
@@ -230,10 +231,10 @@
             z-index: 10;
         }
 
-        /* 아장님 전용 사진 스타일 (선명도 확보) */
         .owner-img {
             width: 100%; height: 100%; object-fit: cover; object-position: top;
-            image-rendering: auto; /* pixelated 제거하여 선명하게 */
+            image-rendering: auto;
+            display: block;
         }
 
         .jelly-input {
@@ -257,6 +258,10 @@
         ::-webkit-scrollbar { width: 14px; }
         ::-webkit-scrollbar-track { background: #e0f2fe; }
         ::-webkit-scrollbar-thumb { background: #bae6fd; border: 3px solid #e0f2fe; border-radius: 10px; }
+        
+        .footer-text {
+            letter-spacing: -0.05em;
+        }
     </style>
 </head>
 <body class="selection:bg-pink-300 selection:text-white pb-20">
@@ -270,19 +275,19 @@
     </div>
 
     <!-- 큐플레이 추억 아이콘들 -->
-    <div class="deco-obj float-1 text-5xl opacity-80" style="top: 12%; left: 8%;">⌨️</div>
-    <div class="deco-obj float-2 text-5xl opacity-70" style="top: 45%; left: 5%;">🖱️</div>
-    <div class="deco-obj float-1 text-6xl opacity-75" style="bottom: 15%; left: 10%;">🐧</div>
-    <div class="deco-obj float-2 text-5xl opacity-80" style="top: 25%; right: 10%;">🧺</div>
-    <div class="deco-obj float-1 text-6xl opacity-60" style="top: 60%; right: 5%;">🤿</div>
-    <div class="deco-obj float-2 text-5xl opacity-85" style="bottom: 25%; right: 12%;">💡</div>
-    <div class="deco-obj float-1 text-5xl opacity-70" style="top: 8%; left: 35%;">👗</div>
-    <div class="deco-obj float-2 text-6xl opacity-60" style="top: 75%; left: 30%;">👾</div>
-    <div class="deco-obj float-1 text-5xl opacity-80" style="bottom: 8%; right: 35%;">💬</div>
-    <div class="deco-obj float-2 text-6xl opacity-75" style="top: 15%; right: 35%;">🃏</div>
+    <div class="deco-obj float-1 text-4xl sm:text-5xl opacity-80" style="top: 12%; left: 8%;">⌨️</div>
+    <div class="deco-obj float-2 text-4xl sm:text-5xl opacity-70" style="top: 45%; left: 5%;">🖱️</div>
+    <div class="deco-obj float-1 text-5xl sm:text-6xl opacity-75" style="bottom: 15%; left: 10%;">🐧</div>
+    <div class="deco-obj float-2 text-4xl sm:text-5xl opacity-80" style="top: 25%; right: 10%;">🧺</div>
+    <div class="deco-obj float-1 text-5xl sm:text-6xl opacity-60" style="top: 60%; right: 5%;">🤿</div>
+    <div class="deco-obj float-2 text-4xl sm:text-5xl opacity-85" style="bottom: 25%; right: 12%;">💡</div>
+    <div class="deco-obj float-1 text-4xl sm:text-5xl opacity-70" style="top: 8%; left: 35%;">👗</div>
+    <div class="deco-obj float-2 text-5xl sm:text-6xl opacity-60" style="top: 75%; left: 30%;">👾</div>
+    <div class="deco-obj float-1 text-4xl sm:text-5xl opacity-80" style="bottom: 8%; right: 35%;">💬</div>
+    <div class="deco-obj float-2 text-5xl sm:text-6xl opacity-75" style="top: 15%; right: 35%;">🃏</div>
 
     <header class="text-center py-16 px-4 relative z-10 flex flex-col items-center">
-        <!-- 메인 타이틀 (가장 상단!) -->
+        <!-- 메인 타이틀 (최상단) -->
         <h1 class="dreamy-title mb-8 mt-4">
             QPLAY ARCHIVE<br>HEAVEN
         </h1>
@@ -318,7 +323,8 @@
     </header>
 
     <main class="flex-grow max-w-[1200px] mx-auto px-4 w-full z-10 relative">
-        <div id="memorialGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+        <!-- 모바일 1열, PC 4열 배치 -->
+        <div id="memorialGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             <!-- JS 렌더링 영역 -->
         </div>
 
@@ -346,10 +352,13 @@
 
             <div class="w-48 flex-shrink-0 relative">
                 <div class="avatar-frame border-4 border-white" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);">
-                    <!-- 선명하게 수정한 아장님 사진 -->
-                    <img src="https://github.com/kimazang/memorial/blob/main/azangangel.png?raw=true" alt="KIMAZANG" class="owner-img p-2">
+                    <!-- 선명한 아장님 사진 (X박스 방지를 위해 다시 로드 시도) -->
+                    <img src="https://github.com/kimazang/memorial/blob/main/azangangel.png?raw=true" 
+                         alt="KIMAZANG" 
+                         class="owner-img p-2"
+                         onerror="this.src='https://api.dicebear.com/7.x/pixel-art/svg?seed=Azang&backgroundColor=transparent'">
                 </div>
-                <!-- 하트와 별 장식에서 애니메이션 클래스(float-1, float-2)를 제거하여 고정했습니다. -->
+                <!-- 고정된 하트와 별 장식 -->
                 <div class="absolute -bottom-4 -right-4 text-5xl drop-shadow-md">✨</div>
                 <div class="absolute -top-4 -left-4 text-4xl drop-shadow-md">💖</div>
             </div>
@@ -383,8 +392,8 @@
 
     <footer class="text-center mt-12 py-10 z-10 relative">
         <div class="inline-block px-8 py-3 bg-white/40 backdrop-blur-md border border-white rounded-full shadow-lg">
-            <p class="text-blue-900 text-sm tracking-widest font-bold">
-                우리의 추억은 서버가 닫혀도 로그아웃되지 않아! 💿
+            <p class="text-blue-900 text-[11px] sm:text-sm tracking-tighter font-bold footer-text">
+                우리의 추억은 서버가 닫혀도 로그아웃되지 않아!
             </p>
             <p class="mt-1 text-blue-700/60 text-[10px] tracking-widest font-bold">
                 Copyright © AZANG. All memories reserved.
@@ -418,35 +427,41 @@
                 ? "filter: grayscale(100%) opacity(30%) blur(1px) drop-shadow(0 5px 10px rgba(0,0,0,0.15));" 
                 : "filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));";
 
+            // 모바일 1열 가로 배치를 위한 레이아웃 분기
             return `
-                <article class="glass-card p-3 flex flex-col group">
-                    <div class="card-name-tag flex justify-between items-center px-3 py-1.5 mb-3 relative z-10 ${user.isEmpty ? 'opacity-70 grayscale' : ''}">
-                        <span class="text-blue-900 font-bold text-sm tracking-widest truncate pr-2 drop-shadow-[1px_1px_0_#fff]">
-                            ${user.nickname}
-                        </span>
-                        <span class="bg-white text-blue-500 text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow-sm">
-                            Lv.${user.level}
-                        </span>
-                    </div>
-                    
-                    <div class="avatar-frame w-full mb-4">
-                        <img src="${user.img}" alt="아바타" class="avatar-img group-hover:scale-105 transition-transform duration-500" style="${imgStyle}">
-                        <div class="absolute bottom-1 right-1 text-2xl drop-shadow-md z-10 opacity-80 group-hover:opacity-100 group-hover:rotate-12 transition-all">
-                            ${sticker}
+                <article class="glass-card p-3 flex flex-row lg:flex-col group">
+                    <!-- 왼쪽 사진 영역 (PC에선 위쪽) -->
+                    <div class="w-[100px] sm:w-[120px] lg:w-full flex-shrink-0">
+                        <div class="avatar-frame w-full mb-0 lg:mb-4">
+                            <img src="${user.img}" alt="아바타" class="avatar-img group-hover:scale-105 transition-transform duration-500" style="${imgStyle}">
+                            <div class="absolute bottom-1 right-1 text-xl lg:text-2xl drop-shadow-md z-10 opacity-80 group-hover:opacity-100 group-hover:rotate-12 transition-all">
+                                ${sticker}
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="flex flex-col gap-3 flex-grow justify-end relative z-10">
-                        <div class="cute-bubble mt-2 ${user.isEmpty ? 'opacity-70' : ''}">
+                    <!-- 오른쪽 내용 영역 (PC에선 아래쪽) -->
+                    <div class="flex flex-col flex-grow pl-3 lg:pl-0 justify-between lg:justify-end relative z-10 min-w-0">
+                        <!-- 이름표 (모바일용 미세 조정) -->
+                        <div class="card-name-tag flex justify-between items-center px-3 py-1 mb-2 lg:mb-3 relative z-10 ${user.isEmpty ? 'opacity-70 grayscale' : ''}">
+                            <span class="text-blue-900 font-bold text-xs sm:text-sm tracking-widest truncate pr-1 drop-shadow-[1px_1px_0_#fff]">
+                                ${user.nickname}
+                            </span>
+                            <span class="bg-white text-blue-500 text-[8px] sm:text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shadow-sm">
+                                Lv.${user.level}
+                            </span>
+                        </div>
+
+                        <div class="cute-bubble mt-0 lg:mt-2 ${user.isEmpty ? 'opacity-70' : ''}">
                             <span class="cute-bubble-title">💌 마지막 인사</span>
-                            <p class="text-[11px] text-blue-900 font-bold leading-snug line-clamp-2 mt-2 break-keep">
+                            <p class="text-[10px] sm:text-[11px] text-blue-900 font-bold leading-snug line-clamp-2 mt-1 lg:mt-2 break-keep min-h-[2.5em] flex items-center">
                                 "${user.lastWord}"
                             </p>
                         </div>
                         
-                        <div class="cute-bubble border-pink-300 bg-pink-50/80 mt-4 ${user.isEmpty ? 'opacity-70' : ''}">
+                        <div class="cute-bubble border-pink-300 bg-pink-50/80 mt-2 lg:mt-4 ${user.isEmpty ? 'opacity-70' : ''}">
                             <span class="cute-bubble-title bg-pink-400">🎀 아장이의 기억</span>
-                            <p class="text-[11px] text-pink-900 font-bold leading-relaxed line-clamp-2 mt-2 break-keep">
+                            <p class="text-[10px] sm:text-[11px] text-pink-900 font-bold leading-relaxed line-clamp-2 mt-1 lg:mt-2 break-keep min-h-[2.5em] flex items-center">
                                 "${user.memory}"
                             </p>
                         </div>
@@ -466,6 +481,7 @@
                 noResult.classList.add('hidden');
                 gridContainer.style.display = 'grid';
                 
+                // 처음에 4개만 보여주고 더보기 버튼으로 나머지 노출
                 const displayCount = isExpanded ? users.length : Math.min(users.length, 4);
                 
                 for(let i = 0; i < displayCount; i++) {
