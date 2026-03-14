@@ -58,14 +58,24 @@
             background: var(--cloud-white);
             border-radius: 100px;
             position: absolute;
-            box-shadow: inset -2px -4px 0px rgba(0,0,0,0.03), 0 15px 25px rgba(0, 50, 150, 0.1);
+            box-shadow: 
+                inset -2px -4px 0px rgba(0,0,0,0.03),
+                0 15px 25px rgba(0, 50, 150, 0.1);
             animation: cloudFloat linear infinite;
         }
         .fluffy-cloud::before, .fluffy-cloud::after {
-            content: ''; position: absolute; background: var(--cloud-white); border-radius: 50%;
+            content: '';
+            position: absolute;
+            background: var(--cloud-white);
+            border-radius: 50%;
         }
-        .fluffy-cloud::before { width: 60%; height: 130%; top: -50%; left: 15%; box-shadow: inset 2px 4px 0px rgba(255,255,255,0.8); }
-        .fluffy-cloud::after { width: 45%; height: 100%; top: -30%; right: 15%; }
+        .fluffy-cloud::before {
+            width: 60%; height: 130%; top: -50%; left: 15%;
+            box-shadow: inset 2px 4px 0px rgba(255,255,255,0.8);
+        }
+        .fluffy-cloud::after {
+            width: 45%; height: 100%; top: -30%; right: 15%;
+        }
 
         .c1 { width: 180px; height: 60px; top: 10%; left: -20%; animation-duration: 40s; transform: scale(1.2); }
         .c2 { width: 120px; height: 40px; top: 30%; left: -10%; animation-duration: 25s; opacity: 0.8; }
@@ -73,9 +83,17 @@
         .c4 { width: 150px; height: 50px; top: 80%; left: -15%; animation-duration: 35s; }
         .c5 { width: 200px; height: 70px; top: 15%; left: -25%; animation-duration: 45s; animation-delay: -20s; }
 
-        @keyframes cloudFloat { 0% { transform: translateX(0) scale(var(--scale, 1)); } 100% { transform: translateX(120vw) scale(var(--scale, 1)); } }
+        @keyframes cloudFloat {
+            0% { transform: translateX(0) scale(var(--scale, 1)); }
+            100% { transform: translateX(120vw) scale(var(--scale, 1)); }
+        }
 
-        .deco-obj { position: fixed; pointer-events: none; z-index: 1; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); }
+        .deco-obj {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+        }
         .float-1 { animation: floatA 6s ease-in-out infinite alternate; }
         .float-2 { animation: floatB 8s ease-in-out infinite alternate-reverse; }
         @keyframes floatA { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-30px) rotate(10deg); } }
@@ -94,53 +112,97 @@
             background: linear-gradient(90deg, #ff9a9e 0%, #fecfef 100%);
             border-bottom: 3px solid #ffb6c1;
             padding: 6px 12px;
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .cute-win-btn {
-            background: white; color: #ff9a9e; border: 2px solid #ffb6c1;
-            width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;
+            background: white;
+            color: #ff9a9e;
+            border: 2px solid #ffb6c1;
+            width: 18px; height: 18px;
+            display: flex; align-items: center; justify-content: center;
             font-size: 10px; font-weight: bold; border-radius: 4px;
         }
 
         .dreamy-title {
-            font-family: 'VT323', monospace; font-size: 3.2rem; color: #ffffff; line-height: 1.1; text-align: center;
-            text-shadow: 0px 4px 0px #8eb0ff, 0px 8px 0px #5c8aff, 0px 15px 20px rgba(0,0,0,0.2); transform: rotate(-2deg);
+            font-family: 'VT323', monospace;
+            font-size: 3.2rem;
+            color: #ffffff;
+            line-height: 1.1;
+            text-align: center;
+            text-shadow: 
+                0px 4px 0px #8eb0ff,
+                0px 8px 0px #5c8aff,
+                0px 15px 20px rgba(0,0,0,0.2);
+            transform: rotate(-2deg);
         }
         @media (min-width: 768px) { .dreamy-title { font-size: 5.5rem; } }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.9); border-radius: 24px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
             box-shadow: 0 10px 25px rgba(0, 50, 150, 0.1);
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative; display: flex;
+            position: relative;
+            overflow: hidden; 
+            display: flex;
         }
         .glass-card::before {
             content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
             background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
             transform: skewX(-20deg); transition: all 0.6s ease; z-index: 1; pointer-events: none;
         }
-        .glass-card:hover { transform: translateY(-8px) scale(1.01); border-color: #fff; box-shadow: 0 15px 35px rgba(0, 50, 150, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.8); }
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #fff;
+            box-shadow: 0 15px 35px rgba(0, 50, 150, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+        }
         .glass-card:hover::before { left: 200%; }
 
-        .card-name-tag { background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%); border: 2px solid #fff; border-radius: 20px; }
+        .card-name-tag {
+            background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+            border: 2px solid #fff;
+            border-radius: 20px;
+        }
 
         .avatar-frame {
-            aspect-ratio: 4 / 5; background: linear-gradient(to bottom, #f0f8ff, #e6e6fa);
-            border: 3px solid #fff; border-radius: 16px; box-shadow: inset 0 5px 15px rgba(0,0,0,0.05);
-            position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
+            aspect-ratio: 4 / 5;
+            background: linear-gradient(to bottom, #f0f8ff, #e6e6fa);
+            border: 3px solid #fff;
+            border-radius: 16px;
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .avatar-img { width: 100%; height: 100%; object-fit: cover; object-position: top; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15)); image-rendering: pixelated; }
+        .avatar-img {
+            width: 100%; height: 100%; object-fit: cover; object-position: top;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15)); image-rendering: pixelated;
+        }
 
-        /* 말풍선 디자인 개선 (첨부파일 2번 해결) */
+        /* 말풍선 레이어 정리 & 점선 투명도 조절 완료 */
         .cute-bubble {
-            background: rgba(255, 255, 255, 0.95); border: 2px dashed rgba(161, 196, 253, 0.15); 
-            border-radius: 12px; padding: 12px 10px 10px 10px; position: relative; box-shadow: inset 0 0 10px rgba(255,255,255,0.4); z-index: 5;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px dashed rgba(161, 196, 253, 0.25); /* 거슬리지 않게 은은한 투명도 */
+            border-radius: 12px;
+            padding: 12px 8px 8px 8px; /* 상단 패딩을 살짝 넓혀 라벨과 겹치지 않게 */
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.4);
+            z-index: 5;
         }
         .cute-bubble-title {
-            position: absolute; top: -14px; left: 8px; background: #a1c4fd; color: #fff; font-size: 10px;
-            padding: 3px 8px; border-radius: 8px; font-weight: bold; box-shadow: 2px 2px 0px rgba(0,0,0,0.05);
-            transform: rotate(-1deg); border: 1px solid #fff; z-index: 20;
+            position: absolute; top: -14px; left: 8px;
+            background: #a1c4fd; color: #fff; font-size: 10px;
+            padding: 2px 6px; border-radius: 8px; font-weight: bold;
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.08);
+            transform: rotate(-2deg);
+            border: 1px solid #fff;
+            z-index: 20; /* 선을 무시하고 제일 위로 오도록 Z-index 상향 */
         }
 
         @keyframes pulseShadow {
@@ -149,26 +211,73 @@
             100% { box-shadow: 0 0 0 4px rgba(255, 182, 193, 0.4), 0 20px 50px rgba(0, 50, 150, 0.15); }
         }
 
+        /* 👑 AZANG 스페셜 카드 - 가로로 시원하게 확장 👑 */
         .azang-special-card {
             background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,240,245,0.9) 100%);
-            backdrop-filter: blur(20px); border: 4px solid #fff; border-radius: 40px; animation: pulseShadow 3s infinite alternate; position: relative; width: 100%;
+            backdrop-filter: blur(20px);
+            border: 4px solid #fff;
+            border-radius: 40px;
+            animation: pulseShadow 3s infinite alternate; 
+            position: relative;
+            width: 100%;
         }
-        .azang-wings::before { content: '👼'; position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 3.5rem; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)); z-index: 10; }
+        .azang-wings::before {
+            content: '👼';
+            position: absolute;
+            top: -30px; left: 50%; transform: translateX(-50%);
+            font-size: 3.5rem; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+            z-index: 10;
+        }
 
-        .owner-img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: top !important; image-rendering: auto !important; display: block !important; }
+        .owner-img {
+            width: 100% !important; 
+            height: 100% !important; 
+            object-fit: cover !important; 
+            object-position: top !important;
+            image-rendering: auto !important;
+            display: block !important;
+        }
 
-        .jelly-input { background: rgba(255, 255, 255, 0.95); border: 3px solid #fff; border-radius: 30px; color: #333; box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: all 0.3s; }
-        .jelly-input:focus { outline: none; border-color: #a1c4fd; box-shadow: 0 8px 25px rgba(161, 196, 253, 0.4); transform: translateY(-2px); }
+        .jelly-input {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #fff; border-radius: 30px;
+            color: #333; box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .jelly-input:focus {
+            outline: none; border-color: #a1c4fd; box-shadow: 0 8px 25px rgba(161, 196, 253, 0.4); transform: translateY(-2px);
+        }
 
-        .social-pill { background: #fff; border: 2px solid transparent; border-radius: 20px; padding: 8px 18px; font-size: 13px; font-weight: bold; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.2s; }
+        .social-pill {
+            background: #fff; border: 2px solid transparent; border-radius: 20px;
+            padding: 8px 18px; font-size: 13px; font-weight: bold;
+            display: inline-flex; align-items: center; gap: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.2s;
+        }
         .social-pill:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
 
         ::-webkit-scrollbar { width: 14px; }
         ::-webkit-scrollbar-track { background: #e0f2fe; }
         ::-webkit-scrollbar-thumb { background: #bae6fd; border: 3px solid #e0f2fe; border-radius: 10px; }
         
-        /* 푸터 자간 시원하게 개선 (첨부파일 1번 해결) */
-        .footer-text { letter-spacing: 0.05em; word-spacing: 0.05em; }
+        /* 푸터 텍스트 반응형 자간 및 줄바꿈 방지 설정 (첨부파일 1번 해결) */
+        .footer-text {
+            white-space: nowrap; /* 무조건 한 줄로 */
+        }
+        /* 모바일에서는 꽉 차게 좁은 자간 유지 */
+        @media (max-width: 767px) {
+            .footer-text {
+                font-size: 10.5px;
+                letter-spacing: -0.06em;
+            }
+        }
+        /* PC에서는 시원하고 넓게 */
+        @media (min-width: 768px) {
+            .footer-text {
+                font-size: 14px;
+                letter-spacing: 0.1em;
+            }
+        }
     </style>
 </head>
 <body class="selection:bg-pink-300 selection:text-white pb-20">
@@ -194,11 +303,17 @@
     <div class="deco-obj float-2 text-5xl sm:text-6xl opacity-75" style="top: 15%; right: 35%;">🃏</div>
 
     <header class="text-center py-16 px-4 relative z-10 flex flex-col items-center">
-        <h1 class="dreamy-title mb-8 mt-4">QPLAY ARCHIVE<br>HEAVEN</h1>
+        <!-- 메인 타이틀 (최상단) -->
+        <h1 class="dreamy-title mb-8 mt-4">
+            QPLAY ARCHIVE<br>HEAVEN
+        </h1>
 
+        <!-- 통합 공지 팝업창 -->
         <div class="cute-win-popup mb-10 max-w-lg mx-auto transform rotate-1 shadow-[0_10px_25px_rgba(255,182,193,0.5)]">
             <div class="cute-win-header">
-                <span class="text-white text-[12px] font-bold tracking-widest flex items-center gap-1"><span class="text-sm">💌</span> Notice.exe</span>
+                <span class="text-white text-[12px] font-bold tracking-widest flex items-center gap-1">
+                    <span class="text-sm">💌</span> Notice.exe
+                </span>
                 <div class="flex gap-1">
                     <div class="cute-win-btn" style="color: #999; border-color: #ddd;">_</div>
                     <div class="cute-win-btn" style="color: #999; border-color: #ddd;">□</div>
@@ -209,12 +324,13 @@
                 <span class="text-4xl mb-1">🥺</span>
                 <p class="text-blue-900 text-[15px] leading-loose font-bold break-keep text-center">
                     현생으로 영영 로그아웃 할 땐 꼭 귓띔해 주세요!<br>
-                    가장 아끼던 <span class="text-pink-500">졸업룩</span>으로,<br class="md:hidden">
+                    가장 아끼던 <span class="text-pink-500">졸업룩</span>으로,<br class="md:hidden"> 
                     이곳에서 기억해 드릴게요👼
                 </p>
             </div>
         </div>
         
+        <!-- 검색창 -->
         <div class="w-full max-w-md relative">
             <input type="text" id="searchInput" placeholder="누구를 찾고 있나요? 🔍" class="jelly-input w-full py-4 px-6 text-center tracking-widest text-lg font-bold">
             <div class="mt-4 inline-block bg-white/70 px-4 py-1.5 rounded-full border border-white text-xs font-bold text-gray-500 tracking-widest shadow-sm">
@@ -223,53 +339,91 @@
         </div>
     </header>
 
-    <main class="flex-grow max-w-[1200px] mx-auto px-4 w-full z-10 relative">
-        <div id="memorialGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-6 lg:gap-8"></div>
-        <div id="showMoreContainer" class="hidden flex justify-center mt-12 mb-4">
-            <button id="showMoreBtn" class="glass-card px-10 py-4 text-indigo-500 font-extrabold tracking-widest hover:bg-white/90 transition-all flex items-center justify-center gap-2"><span>☁️ 비어있는 구름 더보기 ☁️</span></button>
+    <main class="flex-grow max-w-[1350px] mx-auto px-4 w-full z-10 relative">
+        <!-- 모바일 1열(가로), PC 4열 배치 -->
+        <div id="memorialGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-6 lg:gap-8">
+            <!-- JS 렌더링 영역 -->
         </div>
+
+        <div id="showMoreContainer" class="hidden flex justify-center mt-12 mb-4">
+            <button id="showMoreBtn" class="glass-card px-10 py-4 text-indigo-500 font-extrabold tracking-widest hover:bg-white/90 transition-all flex items-center justify-center gap-2">
+                <span>☁️ 비어있는 구름 더보기 ☁️</span>
+            </button>
+        </div>
+        
         <div id="noResult" class="hidden text-center py-24">
-            <div class="glass-card inline-block px-8 py-6 max-w-sm"><div class="text-5xl mb-3">🥺</div><p class="text-lg font-bold text-gray-600">일치하는 큐친이 없어요!</p></div>
+            <div class="glass-card inline-block px-8 py-6 max-w-sm">
+                <div class="text-5xl mb-3">🥺</div>
+                <p class="text-lg font-bold text-gray-600">일치하는 큐친이 없어요!</p>
+            </div>
         </div>
     </main>
 
-    <!-- 👑 @KIMAZANG 전용 카드 👑 -->
-    <section class="max-w-3xl mx-auto px-4 mt-20 mb-10 z-10 relative">
+    <!-- 👑 @KIMAZANG 전용 카드 - max-w-5xl로 시원하게 확장 👑 -->
+    <section class="max-w-5xl mx-auto px-4 mt-20 mb-10 z-10 relative">
         <div class="azang-special-card azang-wings p-8 md:p-12 flex flex-col md:flex-row items-center md:items-start gap-8">
-            <div class="absolute -top-4 -left-4 bg-gradient-to-r from-pink-400 to-purple-400 text-white px-5 py-2 rounded-full shadow-lg font-bold tracking-widest transform -rotate-6 text-xs border-2 border-white">👑 HEAVEN OWNER</div>
+            
+            <div class="absolute -top-4 -left-4 bg-gradient-to-r from-pink-400 to-purple-400 text-white px-5 py-2 rounded-full shadow-lg font-bold tracking-widest transform -rotate-6 text-xs border-2 border-white">
+                👑 HEAVEN OWNER
+            </div>
+
             <div class="w-48 h-60 md:w-56 md:h-72 flex-shrink-0 relative">
                 <div class="avatar-frame border-4 border-white h-full w-full" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);">
-                    <img src="https://raw.githubusercontent.com/kimazang/memorial/main/azangangel.png" alt="KIMAZANG" class="owner-img p-2" crossorigin="anonymous" onerror="this.src='https://api.dicebear.com/7.x/pixel-art/svg?seed=Azang&backgroundColor=transparent'">
+                    <!-- GitHub Direct Raw Link 적용 (원본 선명도 유지) -->
+                    <img src="https://raw.githubusercontent.com/kimazang/memorial/main/azangangel.png" 
+                         alt="KIMAZANG" 
+                         class="owner-img p-2"
+                         crossorigin="anonymous"
+                         onerror="this.src='https://api.dicebear.com/7.x/pixel-art/svg?seed=Azang&backgroundColor=transparent'">
                 </div>
                 <div class="absolute -bottom-4 -right-4 text-5xl drop-shadow-md">✨</div>
                 <div class="absolute -top-4 -left-4 text-4xl drop-shadow-md">💖</div>
             </div>
+            
             <div class="flex flex-col w-full text-center md:text-left mt-2">
-                <h3 class="text-4xl md:text-5xl font-bold mb-4 tracking-widest text-purple-600 drop-shadow-[2px_2px_0_#fff]">@KIMAZANG</h3>
+                <h3 class="text-4xl md:text-5xl font-bold mb-4 tracking-widest text-purple-600 drop-shadow-[2px_2px_0px_#fff]">
+                    @KIMAZANG
+                </h3>
+                
                 <div class="bg-white/90 border-2 border-pink-200 rounded-2xl p-6 md:p-8 mb-6 shadow-sm relative">
-                    <p class="text-pink-900 text-[16px] md:text-[18px] leading-relaxed font-bold break-keep">
+                    <p class="text-pink-900 text-[15px] md:text-[18px] leading-relaxed font-bold break-keep">
+                        <!-- PC용 텍스트 -->
                         <span class="hidden md:inline">큐친들아, 하늘나라 서버에선 렉 없이 잘 지내고 있니?<br>내가 보고 싶다면 언제든지 아래 링크로 편하게 놀러와! 🦋</span>
+                        <!-- 모바일용 텍스트 (줄바꿈 최적화) -->
                         <span class="md:hidden">친구들아, 하늘나라 서버에선<br>렉 없이 잘 지내고 있니?<br>내가 보고 싶다면 언제든지<br>아래 링크로 편하게 놀러와!</span>
                     </p>
                 </div>
+                
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="https://instagram.com/az4ng" target="_blank" class="social-pill text-[#E1306C] hover:border-[#E1306C] hover:bg-pink-50 py-3 px-6"><span class="text-xl leading-none">📸</span> Instagram</a>
-                    <a href="https://youtube.com/@kimazang" target="_blank" class="social-pill text-[#FF0000] hover:border-[#FF0000] hover:bg-red-50 py-3 px-6"><span class="text-xl leading-none">▶️</span> YouTube</a>
-                    <a href="https://kimazan.tistory.com" target="_blank" class="social-pill text-[#EB531F] hover:border-[#EB531F] hover:bg-orange-50 py-3 px-6"><span class="text-xl leading-none font-sans font-black">T</span> Tistory</a>
+                    <a href="https://instagram.com/az4ng" target="_blank" class="social-pill text-[#E1306C] hover:border-[#E1306C] hover:bg-pink-50 py-3 px-6">
+                        <span class="text-xl leading-none">📸</span> Instagram
+                    </a>
+                    <a href="https://youtube.com/@kimazang" target="_blank" class="social-pill text-[#FF0000] hover:border-[#FF0000] hover:bg-red-50 py-3 px-6">
+                        <span class="text-xl leading-none">▶️</span> YouTube
+                    </a>
+                    <a href="https://kimazan.tistory.com" target="_blank" class="social-pill text-[#EB531F] hover:border-[#EB531F] hover:bg-orange-50 py-3 px-6">
+                        <span class="text-xl leading-none font-sans font-black">T</span> Tistory
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 푸터 -->
     <footer class="text-center mt-12 py-10 z-10 relative">
-        <div class="inline-block px-8 py-4 bg-white/40 backdrop-blur-md border border-white rounded-full shadow-lg">
-            <p class="text-blue-900 text-[11px] sm:text-[14px] font-bold footer-text whitespace-nowrap">우리의 추억은 서버가 닫혀도 로그아웃되지 않아!</p>
-            <p class="mt-2 text-blue-700/60 text-[9px] tracking-widest font-bold">Copyright © KIMAZANG. All memories reserved.</p>
+        <div class="inline-block px-6 md:px-8 py-3 bg-white/40 backdrop-blur-md border border-white rounded-full shadow-lg max-w-[95%]">
+            <p class="text-blue-900 font-bold footer-text">
+                우리의 추억은 서버가 닫혀도 로그아웃되지 않아!
+            </p>
+            <p class="mt-1 text-blue-700/60 text-[9px] md:text-[10px] tracking-widest font-bold">
+                Copyright © AZANG. All memories reserved.
+            </p>
         </div>
     </footer>
 
     <script>
         let isExpanded = false;
+
         const departedUsers = Array.from({ length: 8 }, (_, index) => ({
             isEmpty: true,
             nickname: `@비어있는_구름_${String(index + 1).padStart(2, '0')}`, 
@@ -288,59 +442,90 @@
 
         function createCard(user) {
             const sticker = user.isEmpty ? '❔' : (user.level > 50 ? '🌟' : '🎀');
-            const imgStyle = user.isEmpty ? "filter: grayscale(100%) opacity(30%) blur(1px) drop-shadow(0 5px 10px rgba(0,0,0,0.15));" : "filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));";
+            const imgStyle = user.isEmpty 
+                ? "filter: grayscale(100%) opacity(30%) blur(1px) drop-shadow(0 5px 10px rgba(0,0,0,0.15));" 
+                : "filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));";
+
             return `
                 <article class="glass-card p-4 flex flex-row lg:flex-col group">
                     <div class="w-[100px] sm:w-[120px] lg:w-full flex-shrink-0">
                         <div class="avatar-frame w-full mb-0 lg:mb-4">
                             <img src="${user.img}" alt="아바타" class="avatar-img group-hover:scale-105 transition-transform duration-500" style="${imgStyle}" crossorigin="anonymous">
-                            <div class="absolute bottom-1 right-1 text-xl lg:text-2xl drop-shadow-md z-10 opacity-80 group-hover:opacity-100 group-hover:rotate-12 transition-all">${sticker}</div>
+                            <div class="absolute bottom-1 right-1 text-xl lg:text-2xl drop-shadow-md z-10 opacity-80 group-hover:opacity-100 group-hover:rotate-12 transition-all">
+                                ${sticker}
+                            </div>
                         </div>
                     </div>
+                    
                     <div class="flex flex-col flex-grow pl-4 lg:pl-0 justify-between lg:justify-end relative z-20 min-w-0">
-                        <div class="card-name-tag flex justify-between items-center px-3 py-1.5 mb-2 lg:mb-4 relative z-10 ${user.isEmpty ? 'opacity-70 grayscale' : ''}">
-                            <span class="text-blue-900 font-bold text-xs sm:text-sm tracking-widest truncate pr-1 drop-shadow-[1px_1px_0_#fff]">${user.nickname}</span>
-                            <span class="bg-white text-blue-500 text-[8px] sm:text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shadow-sm">Lv.${user.level}</span>
+                        <div class="card-name-tag flex justify-between items-center px-3 py-1.5 mb-2 lg:mb-3 relative z-10 ${user.isEmpty ? 'opacity-70 grayscale' : ''}">
+                            <span class="text-blue-900 font-bold text-xs sm:text-sm tracking-widest truncate pr-1 drop-shadow-[1px_1px_0_#fff]">
+                                ${user.nickname}
+                            </span>
+                            <span class="bg-white text-blue-500 text-[8px] sm:text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shadow-sm">
+                                Lv.${user.level}
+                            </span>
                         </div>
-                        <div class="cute-bubble mt-0 lg:mt-2 ${user.isEmpty ? 'opacity-70' : ''}">
+
+                        <div class="cute-bubble mt-3 lg:mt-2 ${user.isEmpty ? 'opacity-70' : ''}">
                             <span class="cute-bubble-title">💌 마지막 인사</span>
-                            <p class="text-[10px] sm:text-[11px] text-blue-900 font-bold leading-snug line-clamp-2 mt-1 lg:mt-2 break-keep min-h-[2.4em] flex items-center">"${user.lastWord}"</p>
+                            <p class="text-[10px] sm:text-[11px] text-blue-900 font-bold leading-snug line-clamp-2 mt-1 lg:mt-2 break-keep min-h-[2.4em] flex items-center">
+                                "${user.lastWord}"
+                            </p>
                         </div>
-                        <div class="cute-bubble border-pink-300 bg-pink-50/90 mt-2 lg:mt-4 ${user.isEmpty ? 'opacity-70' : ''}">
+                        
+                        <div class="cute-bubble border-pink-300 bg-pink-50/90 mt-4 lg:mt-4 ${user.isEmpty ? 'opacity-70' : ''}">
                             <span class="cute-bubble-title bg-pink-400">🎀 아장이의 기억</span>
-                            <p class="text-[10px] sm:text-[11px] text-pink-900 font-bold leading-relaxed line-clamp-2 mt-1 lg:mt-2 break-keep min-h-[2.4em] flex items-center">"${user.memory}"</p>
+                            <p class="text-[10px] sm:text-[11px] text-pink-900 font-bold leading-relaxed line-clamp-2 mt-1 lg:mt-2 break-keep min-h-[2.4em] flex items-center">
+                                "${user.memory}"
+                            </p>
                         </div>
                     </div>
-                </article>`;
+                </article>
+            `;
         }
 
         function renderMemorial(users) {
             gridContainer.innerHTML = '';
             showMoreContainer.classList.add('hidden'); 
+
             if (users.length === 0) {
                 noResult.classList.remove('hidden');
                 gridContainer.style.display = 'none';
             } else {
                 noResult.classList.add('hidden');
                 gridContainer.style.display = 'grid';
+                
                 const displayCount = isExpanded ? users.length : Math.min(users.length, 4);
-                for(let i = 0; i < displayCount; i++) { gridContainer.innerHTML += createCard(users[i]); }
-                if (!isExpanded && users.length > 4) { showMoreContainer.classList.remove('hidden'); }
+                
+                for(let i = 0; i < displayCount; i++) {
+                    gridContainer.innerHTML += createCard(users[i]);
+                }
+
+                if (!isExpanded && users.length > 4) {
+                    showMoreContainer.classList.remove('hidden');
+                }
             }
             totalCount.innerText = users.length;
         }
 
         renderMemorial(departedUsers);
+
         showMoreBtn.addEventListener('click', () => {
             isExpanded = true;
             const keyword = searchInput.value.toLowerCase();
-            const filteredUsers = departedUsers.filter(user => user.nickname.toLowerCase().includes(keyword));
+            const filteredUsers = departedUsers.filter(user => 
+                user.nickname.toLowerCase().includes(keyword)
+            );
             renderMemorial(filteredUsers);
         });
+
         searchInput.addEventListener('input', (e) => {
             isExpanded = false; 
             const keyword = e.target.value.toLowerCase();
-            const filteredUsers = departedUsers.filter(user => user.nickname.toLowerCase().includes(keyword));
+            const filteredUsers = departedUsers.filter(user => 
+                user.nickname.toLowerCase().includes(keyword)
+            );
             renderMemorial(filteredUsers);
         });
     </script>
