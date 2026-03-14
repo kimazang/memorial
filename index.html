@@ -9,14 +9,14 @@
     
     <!-- ▼▼▼ 카카오톡/디스코드 등 링크 공유 시 미리보기(Open Graph) 설정 ▼▼▼ -->
     <meta property="og:title" content="QPLAY ARCHIVE HEAVEN ☁️🫧">
-    <meta property="og:description" content=" 우리의 추억은 로그아웃되지 않아!">
+    <meta property="og:description" content="접속이 끊긴 큐친들을 영원히 기억하는 구름 위 천국. 우리의 추억은 로그아웃되지 않아!">
     <meta property="og:image" content="https://raw.githubusercontent.com/kimazang/memorial/main/azangangel.png">
     <meta property="og:type" content="website">
     
     <!-- SNS용 미리보기 설정 -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="QPLAY ARCHIVE HEAVEN ☁️🫧">
-    <meta name="twitter:description" content="우리의 추억은 로그아웃되지 않아!">
+    <meta name="twitter:description" content="접속이 끊긴 큐친들을 영원히 기억하는 구름 위 천국. 우리의 추억은 로그아웃되지 않아!">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/kimazang/memorial/main/azangangel.png">
 
     <title>QPLAY ARCHIVE HEAVEN ☁️🫧</title>
@@ -147,7 +147,6 @@
             box-shadow: 0 10px 25px rgba(0, 50, 150, 0.1);
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
-            overflow: hidden; 
             display: flex;
         }
         .glass-card::before {
@@ -156,7 +155,7 @@
             transform: skewX(-20deg); transition: all 0.6s ease; z-index: 1; pointer-events: none;
         }
         .glass-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-8px) scale(1.01);
             border-color: #fff;
             box-shadow: 0 15px 35px rgba(0, 50, 150, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.8);
         }
@@ -187,20 +186,27 @@
 
         .cute-bubble {
             background: rgba(255, 255, 255, 0.95);
-            border: 2px dashed #a1c4fd;
+            border: 2px dashed rgba(161, 196, 253, 0.2); 
             border-radius: 12px;
-            padding: 10px 8px 8px 8px; 
+            padding: 12px 10px 10px 10px; 
             position: relative;
             box-shadow: inset 0 0 10px rgba(255,255,255,0.4);
+            z-index: 5;
         }
         .cute-bubble-title {
-            position: absolute; top: -12px; left: 8px;
-            background: #a1c4fd; color: #fff; font-size: 10px;
-            padding: 2px 6px; border-radius: 8px; font-weight: bold;
-            box-shadow: 2px 2px 0px rgba(0,0,0,0.08);
-            transform: rotate(-2deg);
+            position: absolute; 
+            top: -14px; 
+            left: 8px;
+            background: #a1c4fd; 
+            color: #fff; 
+            font-size: 10px;
+            padding: 3px 8px; 
+            border-radius: 8px; 
+            font-weight: bold;
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+            transform: rotate(-1deg);
             border: 1px solid #fff;
-            z-index: 10;
+            z-index: 15;
         }
 
         @keyframes pulseShadow {
@@ -216,6 +222,7 @@
             border-radius: 40px;
             animation: pulseShadow 3s infinite alternate; 
             position: relative;
+            width: 100%;
         }
         .azang-wings::before {
             content: '👼';
@@ -257,7 +264,8 @@
         ::-webkit-scrollbar-thumb { background: #bae6fd; border: 3px solid #e0f2fe; border-radius: 10px; }
         
         .footer-text {
-            letter-spacing: -0.045em;
+            letter-spacing: 0.05em;
+            word-spacing: 0.05em;
         }
     </style>
 </head>
@@ -284,12 +292,12 @@
     <div class="deco-obj float-2 text-5xl sm:text-6xl opacity-75" style="top: 15%; right: 35%;">🃏</div>
 
     <header class="text-center py-16 px-4 relative z-10 flex flex-col items-center">
-        <!-- 메인 타이틀 (최상단) -->
+        <!-- 메인 타이틀 -->
         <h1 class="dreamy-title mb-8 mt-4">
             QPLAY ARCHIVE<br>HEAVEN
         </h1>
 
-        <!-- 통합 공지 팝업창 -->
+        <!-- 통합 공지 팝업창 (모바일 줄바꿈 수정) -->
         <div class="cute-win-popup mb-10 max-w-lg mx-auto transform rotate-1 shadow-[0_10px_25px_rgba(255,182,193,0.5)]">
             <div class="cute-win-header">
                 <span class="text-white text-[12px] font-bold tracking-widest flex items-center gap-1">
@@ -305,7 +313,8 @@
                 <span class="text-4xl mb-1">🥺</span>
                 <p class="text-blue-900 text-[15px] leading-loose font-bold break-keep text-center">
                     현생으로 영영 로그아웃 할 땐 꼭 귓띔해 주세요!<br>
-                    가장 아끼던 <span class="text-pink-500">졸업룩</span>으로, 이곳에서 기억해 드릴게요👼
+                    가장 아끼던 <span class="text-pink-500">졸업룩</span>으로,<br class="md:hidden">
+                    이곳에서 기억해 드릴게요👼
                 </p>
             </div>
         </div>
@@ -319,7 +328,7 @@
         </div>
     </header>
 
-    <main class="flex-grow max-w-[1200px] mx-auto px-4 w-full z-10 relative">
+    <main class="flex-grow max-w-[1350px] mx-auto px-4 w-full z-10 relative">
         <!-- 모바일 1열(가로), PC 4열 배치 -->
         <div id="memorialGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-6 lg:gap-8">
             <!-- JS 렌더링 영역 -->
@@ -340,16 +349,15 @@
     </main>
 
     <!-- 👑 @KIMAZANG 전용 카드 👑 -->
-    <section class="max-w-3xl mx-auto px-4 mt-20 mb-10 z-10 relative">
+    <section class="max-w-5xl mx-auto px-4 mt-20 mb-10 z-10 relative">
         <div class="azang-special-card azang-wings p-8 md:p-12 flex flex-col md:flex-row items-center md:items-start gap-8">
             
             <div class="absolute -top-4 -left-4 bg-gradient-to-r from-pink-400 to-purple-400 text-white px-5 py-2 rounded-full shadow-lg font-bold tracking-widest transform -rotate-6 text-xs border-2 border-white">
                 👑 HEAVEN OWNER
             </div>
 
-            <div class="w-48 h-60 md:w-48 md:h-60 flex-shrink-0 relative">
+            <div class="w-48 h-60 md:w-56 md:h-72 flex-shrink-0 relative">
                 <div class="avatar-frame border-4 border-white h-full w-full" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);">
-                    <!-- GitHub Direct Raw Link 적용 (가장 안정적) -->
                     <img src="https://raw.githubusercontent.com/kimazang/memorial/main/azangangel.png" 
                          alt="KIMAZANG" 
                          class="owner-img p-2"
@@ -361,38 +369,39 @@
             </div>
             
             <div class="flex flex-col w-full text-center md:text-left mt-2">
-                <h3 class="text-4xl font-bold mb-4 tracking-widest text-purple-600 drop-shadow-[2px_2px_0px_#fff]">
+                <h3 class="text-4xl md:text-5xl font-bold mb-4 tracking-widest text-purple-600 drop-shadow-[2px_2px_0px_#fff]">
                     @KIMAZANG
                 </h3>
                 
-                <div class="bg-white/90 border-2 border-pink-200 rounded-2xl p-5 mb-6 shadow-sm relative">
-                    <p class="text-pink-900 text-[15px] leading-relaxed font-bold break-keep">
-                        큐친들아, 하늘나라 서버에선 렉 없이 잘 지내고 있니?<br>
-                        내가 보고 싶다면 언제든지 아래 링크로 편하게 놀러와! 🦋
+                <div class="bg-white/90 border-2 border-pink-200 rounded-2xl p-6 md:p-8 mb-6 shadow-sm relative">
+                    <p class="text-pink-900 text-[16px] md:text-[18px] leading-relaxed font-bold break-keep">
+                        <span class="hidden md:inline">큐친들아, 하늘나라 서버에선 렉 없이 잘 지내고 있니?<br>내가 보고 싶다면 언제든지 아래 링크로 편하게 놀러와! 🦋</span>
+                        <span class="md:hidden">친구들아, 하늘나라 서버에선<br>렉 없이 잘 지내고 있니?<br>내가 보고 싶다면 언제든지<br>아래 링크로 편하게 놀러와!</span>
                     </p>
                 </div>
                 
-                <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                    <a href="https://instagram.com/az4ng" target="_blank" class="social-pill text-[#E1306C] hover:border-[#E1306C] hover:bg-pink-50">
-                        <span class="text-lg leading-none">📸</span> Instagram
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="https://instagram.com/az4ng" target="_blank" class="social-pill text-[#E1306C] hover:border-[#E1306C] hover:bg-pink-50 py-3 px-6">
+                        <span class="text-xl leading-none">📸</span> Instagram
                     </a>
-                    <a href="https://youtube.com/@kimazang" target="_blank" class="social-pill text-[#FF0000] hover:border-[#FF0000] hover:bg-red-50">
-                        <span class="text-lg leading-none">▶️</span> YouTube
+                    <a href="https://youtube.com/@kimazang" target="_blank" class="social-pill text-[#FF0000] hover:border-[#FF0000] hover:bg-red-50 py-3 px-6">
+                        <span class="text-xl leading-none">▶️</span> YouTube
                     </a>
-                    <a href="https://kimazan.tistory.com" target="_blank" class="social-pill text-[#EB531F] hover:border-[#EB531F] hover:bg-orange-50">
-                        <span class="text-lg leading-none font-sans font-black">T</span> Tistory
+                    <a href="https://kimazan.tistory.com" target="_blank" class="social-pill text-[#EB531F] hover:border-[#EB531F] hover:bg-orange-50 py-3 px-6">
+                        <span class="text-xl leading-none font-sans font-black">T</span> Tistory
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 푸터 -->
     <footer class="text-center mt-12 py-10 z-10 relative">
-        <div class="inline-block px-8 py-3 bg-white/40 backdrop-blur-md border border-white rounded-full shadow-lg">
-            <p class="text-blue-900 text-[10px] sm:text-[13px] tracking-tight font-bold footer-text">
+        <div class="inline-block px-8 py-4 bg-white/40 backdrop-blur-md border border-white rounded-full shadow-lg">
+            <p class="text-blue-900 text-[11px] sm:text-[14px] font-bold footer-text whitespace-nowrap">
                 우리의 추억은 서버가 닫혀도 로그아웃되지 않아!
             </p>
-            <p class="mt-1 text-blue-700/60 text-[9px] tracking-widest font-bold">
+            <p class="mt-2 text-blue-700/60 text-[9px] tracking-widest font-bold">
                 Copyright © KIMAZANG. All memories reserved.
             </p>
         </div>
@@ -434,8 +443,8 @@
                         </div>
                     </div>
                     
-                    <div class="flex flex-col flex-grow pl-4 lg:pl-0 justify-between lg:justify-end relative z-10 min-w-0">
-                        <div class="card-name-tag flex justify-between items-center px-3 py-1.5 mb-2 lg:mb-3 relative z-10 ${user.isEmpty ? 'opacity-70 grayscale' : ''}">
+                    <div class="flex flex-col flex-grow pl-4 lg:pl-0 justify-between lg:justify-end relative z-20 min-w-0">
+                        <div class="card-name-tag flex justify-between items-center px-3 py-1.5 mb-2 lg:mb-4 relative z-10 ${user.isEmpty ? 'opacity-70 grayscale' : ''}">
                             <span class="text-blue-900 font-bold text-xs sm:text-sm tracking-widest truncate pr-1 drop-shadow-[1px_1px_0_#fff]">
                                 ${user.nickname}
                             </span>
