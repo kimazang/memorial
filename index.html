@@ -9,17 +9,15 @@
     
     <!-- ▼▼▼ 카카오톡/디스코드 등 링크 공유 시 미리보기(Open Graph) 설정 ▼▼▼ -->
     <meta property="og:title" content="QPLAY ARCHIVE HEAVEN ☁️🫧">
-    <meta property="og:description" content="접속이 끊긴 큐친들을 영원히 기억하는 구름 위 천국. 우리의 추억은 로그아웃되지 않아!">
-    <!-- 아래 content 안에 카톡에 띄울 썸네일 이미지 주소를 넣어주세요 (권장 가로세로 비율 1200x630 또는 1:1) -->
+    <meta property="og:description" content="우리의 추억은 로그아웃되지 않아!">
     <meta property="og:image" content="https://github.com/kimazang/memorial/blob/main/azangangel.png?raw=true">
     <meta property="og:type" content="website">
     
-    <!-- 트위터(X) 등 다른 SNS용 미리보기 설정 -->
+    <!-- SNS용 미리보기 설정 -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="QPLAY ARCHIVE HEAVEN ☁️🫧">
     <meta name="twitter:description" content="접속이 끊긴 큐친들을 영원히 기억하는 구름 위 천국. 우리의 추억은 로그아웃되지 않아!">
     <meta name="twitter:image" content="https://github.com/kimazang/memorial/blob/main/azangangel.png?raw=true">
-    <!-- ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ -->
 
     <title>QPLAY ARCHIVE HEAVEN ☁️🫧</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,7 +28,7 @@
 
         :root {
             --tistory-orange: #EB531F;
-            --discord-blue: #5865F2;
+            --instagram-pink: #E1306C;
             --youtube-red: #FF0000;
             --heaven-blue: #96c8ff;
             --cloud-white: #ffffff;
@@ -103,7 +101,7 @@
         @keyframes floatA { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-30px) rotate(10deg); } }
         @keyframes floatB { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(20px) rotate(-10deg); } }
 
-        /* 🎀 딱 하나 들어가는 귀여운 윈도우 팝업창 🎀 */
+        /* 🎀 윈도우 팝업창 디자인 🎀 */
         .cute-win-popup {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
@@ -145,7 +143,7 @@
         }
         @media (min-width: 768px) { .dreamy-title { font-size: 5.5rem; } }
 
-        /* 친구들 일반 카드 (글래스모피즘 + 샤인 효과 추가) */
+        /* 카드 디자인 */
         .glass-card {
             background: rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(10px);
@@ -156,7 +154,6 @@
             position: relative;
             overflow: hidden; 
         }
-        /* 유리 표면 광택(Shine) 애니메이션 */
         .glass-card::before {
             content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
             background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
@@ -171,14 +168,12 @@
             left: 200%;
         }
 
-        /* 이름표 */
         .card-name-tag {
             background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
             border: 2px solid #fff;
             border-radius: 20px;
         }
 
-        /* 아바타 4:5 영역 */
         .avatar-frame {
             aspect-ratio: 4 / 5;
             background: linear-gradient(to bottom, #f0f8ff, #e6e6fa);
@@ -193,7 +188,6 @@
             filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15)); image-rendering: pixelated;
         }
 
-        /* 귀여운 말풍선 (디테일 업그레이드) */
         .cute-bubble {
             background: rgba(255, 255, 255, 0.85);
             border: 2px dashed #a1c4fd;
@@ -202,7 +196,6 @@
             position: relative;
             box-shadow: inset 0 0 10px rgba(255,255,255,0.4);
         }
-        /* 라벨을 진짜 다꾸 스티커처럼 입체적으로 변경 */
         .cute-bubble-title {
             position: absolute; top: -12px; left: 8px;
             background: #a1c4fd; color: #fff; font-size: 11px;
@@ -213,23 +206,22 @@
             z-index: 10;
         }
 
-        /* 숨쉬는 듯한 핑크빛 광채 애니메이션 추가 */
-        @keyframes pulseGlow {
+        /* 아장 스페셜 카드용 숨쉬는 광채 효과 (크기 변화 scale 삭제) */
+        @keyframes pulseShadow {
             0% { box-shadow: 0 0 0 4px rgba(255, 182, 193, 0.4), 0 20px 50px rgba(0, 50, 150, 0.15); }
-            50% { box-shadow: 0 0 0 8px rgba(255, 182, 193, 0.7), 0 20px 50px rgba(0, 50, 150, 0.2); transform: scale(1.01); }
+            50% { box-shadow: 0 0 0 12px rgba(255, 182, 193, 0.7), 0 20px 60px rgba(0, 50, 150, 0.25); }
             100% { box-shadow: 0 0 0 4px rgba(255, 182, 193, 0.4), 0 20px 50px rgba(0, 50, 150, 0.15); }
         }
 
-        /* 👑 AZANG 스페셜 카드 (독보적인 디자인) 👑 */
+        /* 👑 AZANG 스페셜 카드 👑 */
         .azang-special-card {
             background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,240,245,0.7) 100%);
             backdrop-filter: blur(20px);
             border: 4px solid #fff;
             border-radius: 40px;
-            animation: pulseGlow 3s infinite alternate; 
+            animation: pulseShadow 3s infinite alternate; 
             position: relative;
         }
-        /* 아장 카드 천사 날개 장식 */
         .azang-wings::before {
             content: '👼';
             position: absolute;
@@ -238,7 +230,12 @@
             z-index: 10;
         }
 
-        /* 빵빵 젤리 검색창 */
+        /* 아장님 전용 사진 스타일 (선명도 확보) */
+        .owner-img {
+            width: 100%; height: 100%; object-fit: cover; object-position: top;
+            image-rendering: auto; /* pixelated 제거하여 선명하게 */
+        }
+
         .jelly-input {
             background: rgba(255, 255, 255, 0.9);
             border: 3px solid #fff; border-radius: 30px;
@@ -249,7 +246,6 @@
             outline: none; border-color: #a1c4fd; box-shadow: 0 8px 25px rgba(161, 196, 253, 0.4); transform: translateY(-2px);
         }
 
-        /* 소셜 링크 젤리 버튼 */
         .social-pill {
             background: #fff; border: 2px solid transparent; border-radius: 20px;
             padding: 8px 18px; font-size: 13px; font-weight: bold;
@@ -261,12 +257,10 @@
         ::-webkit-scrollbar { width: 14px; }
         ::-webkit-scrollbar-track { background: #e0f2fe; }
         ::-webkit-scrollbar-thumb { background: #bae6fd; border: 3px solid #e0f2fe; border-radius: 10px; }
-
     </style>
 </head>
 <body class="selection:bg-pink-300 selection:text-white pb-20">
 
-    <!-- ☁️ 뽈록뽈록 CSS 배경 구름 ☁️ -->
     <div class="cloud-wrapper">
         <div class="fluffy-cloud c1" style="--scale: 1.2;"></div>
         <div class="fluffy-cloud c2" style="--scale: 0.8;"></div>
@@ -275,7 +269,7 @@
         <div class="fluffy-cloud c5" style="--scale: 1.3;"></div>
     </div>
 
-    <!-- 큐플레이 추억의 아이콘 오브제들 -->
+    <!-- 큐플레이 추억 아이콘들 -->
     <div class="deco-obj float-1 text-5xl opacity-80" style="top: 12%; left: 8%;">⌨️</div>
     <div class="deco-obj float-2 text-5xl opacity-70" style="top: 45%; left: 5%;">🖱️</div>
     <div class="deco-obj float-1 text-6xl opacity-75" style="bottom: 15%; left: 10%;">🐧</div>
@@ -288,13 +282,12 @@
     <div class="deco-obj float-2 text-6xl opacity-75" style="top: 15%; right: 35%;">🃏</div>
 
     <header class="text-center py-16 px-4 relative z-10 flex flex-col items-center">
-        
-        <!-- 메인 타이틀 (가장 위로 이동!) -->
+        <!-- 메인 타이틀 (가장 상단!) -->
         <h1 class="dreamy-title mb-8 mt-4">
             QPLAY ARCHIVE<br>HEAVEN
         </h1>
 
-        <!-- 🎀 하나로 통합된 예쁜 윈도우 공지 팝업창 🎀 -->
+        <!-- 통합 공지 팝업창 -->
         <div class="cute-win-popup mb-10 max-w-lg mx-auto transform rotate-1 shadow-[0_10px_25px_rgba(255,182,193,0.5)]">
             <div class="cute-win-header">
                 <span class="text-white text-[12px] font-bold tracking-widest flex items-center gap-1">
@@ -319,25 +312,22 @@
         <div class="w-full max-w-md relative">
             <input type="text" id="searchInput" placeholder="누구를 찾고 있나요? 🔍" class="jelly-input w-full py-4 px-6 text-center tracking-widest text-lg font-bold">
             <div class="mt-4 inline-block bg-white/70 px-4 py-1.5 rounded-full border border-white text-xs font-bold text-gray-500 tracking-widest shadow-sm">
-                잠든 요정들 : <span id="totalCount" class="text-blue-500 text-sm">0</span> 명
+                잠든 천사들 : <span id="totalCount" class="text-blue-500 text-sm">0</span> 명
             </div>
         </div>
     </header>
 
-    <!-- 메인 갤러리 영역 (모바일 2열 / PC 4열) -->
     <main class="flex-grow max-w-[1200px] mx-auto px-4 w-full z-10 relative">
         <div id="memorialGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-            <!-- 자바스크립트를 통해 렌더링됨 -->
+            <!-- JS 렌더링 영역 -->
         </div>
 
-        <!-- 🎀 4명 초과 시 나타나는 더보기 버튼 영역 🎀 -->
         <div id="showMoreContainer" class="hidden flex justify-center mt-12 mb-4">
             <button id="showMoreBtn" class="glass-card px-10 py-4 text-indigo-500 font-extrabold tracking-widest hover:bg-white/80 transition-all flex items-center justify-center gap-2">
                 <span>☁️ 비어있는 구름 더보기 ☁️</span>
             </button>
         </div>
         
-        <!-- 검색 결과 없음 -->
         <div id="noResult" class="hidden text-center py-24">
             <div class="glass-card inline-block px-8 py-6 max-w-sm">
                 <div class="text-5xl mb-3">🥺</div>
@@ -346,7 +336,7 @@
         </div>
     </main>
 
-    <!-- 👑 완전히 구분된 AZANG 스페셜 카드 영역 👑 -->
+    <!-- 👑 @KIMAZANG 전용 카드 👑 -->
     <section class="max-w-3xl mx-auto px-4 mt-20 mb-10 z-10 relative">
         <div class="azang-special-card azang-wings p-8 md:p-12 flex flex-col md:flex-row items-center md:items-start gap-8">
             
@@ -354,20 +344,15 @@
                 👑 HEAVEN OWNER
             </div>
 
-            <!-- AZANG 아바타 (반짝이는 홀로그램 프레임) -->
             <div class="w-48 flex-shrink-0 relative">
                 <div class="avatar-frame border-4 border-white" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);">
-                    
-                    <!-- ▼▼▼ 아장님의 진짜 프로필 이미지 주소 적용 완료 ▼▼▼ -->
-                    <img src="https://github.com/kimazang/memorial/blob/main/azangangel.png?raw=true" alt="AZANG" class="avatar-img p-2">
-                    <!-- ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ -->
-                    
+                    <!-- 선명하게 수정한 아장님 사진 -->
+                    <img src="https://github.com/kimazang/memorial/blob/main/azangangel.png?raw=true" alt="KIMAZANG" class="owner-img p-2">
                 </div>
                 <div class="absolute -bottom-4 -right-4 text-5xl drop-shadow-md float-2">✨</div>
                 <div class="absolute -top-4 -left-4 text-4xl drop-shadow-md float-1">💖</div>
             </div>
             
-            <!-- AZANG 정보 및 버튼 -->
             <div class="flex flex-col w-full text-center md:text-left mt-2">
                 <h3 class="text-4xl font-bold mb-4 tracking-widest text-purple-600 drop-shadow-[2px_2px_0px_#fff]">
                     @KIMAZANG
@@ -376,14 +361,13 @@
                 <div class="bg-white/80 border-2 border-pink-200 rounded-2xl p-5 mb-6 shadow-sm relative">
                     <p class="text-pink-900 text-[15px] leading-relaxed font-bold break-keep">
                         큐친들아, 하늘나라 서버에선 렉 없이 잘 지내고 있니?<br>
-                        내가 보고 싶다면 언제든지 아래 링크로 편하게 놀러와! 🦋
+                        내가 보고 싶다면 언제든지 아래 링크로 편하게 놀러와!
                     </p>
                 </div>
                 
-                <!-- 소셜 젤리 버튼들 -->
                 <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                    <a href="https://discord.gg/y7qqYcGYMB" target="_blank" class="social-pill text-[#5865F2] hover:border-[#5865F2] hover:bg-indigo-50">
-                        <span class="text-lg leading-none">💬</span> Discord
+                    <a href="https://instagram.com/az4ng" target="_blank" class="social-pill text-[#E1306C] hover:border-[#E1306C] hover:bg-pink-50">
+                        <span class="text-lg leading-none">📸</span> Instagram
                     </a>
                     <a href="https://youtube.com/@kimazang" target="_blank" class="social-pill text-[#FF0000] hover:border-[#FF0000] hover:bg-red-50">
                         <span class="text-lg leading-none">▶️</span> YouTube
@@ -396,7 +380,6 @@
         </div>
     </section>
 
-    <!-- 푸터 -->
     <footer class="text-center mt-12 py-10 z-10 relative">
         <div class="inline-block px-8 py-3 bg-white/40 backdrop-blur-md border border-white rounded-full shadow-lg">
             <p class="text-blue-900 text-sm tracking-widest font-bold">
@@ -408,22 +391,17 @@
         </div>
     </footer>
 
-    <!-- 자바스크립트 데이터 -->
     <script>
-        // 현재 더보기 상태를 추적하는 변수
         let isExpanded = false;
 
-        // 8개의 공석(Empty Slot) 데이터를 생성합니다.
-        // 친구가 생길 때마다 이 배열의 내용을 진짜 친구 정보로 바꿔주시면 됩니다!
+        // 초기 8개의 공석 데이터
         const departedUsers = Array.from({ length: 8 }, (_, index) => ({
             isEmpty: true,
             nickname: `@비어있는_구름_${String(index + 1).padStart(2, '0')}`, 
             level: "??", 
-            // ▼▼▼ 여기에 친구의 이미지 주소를 넣어주세요 ▼▼▼
             img: `https://api.dicebear.com/7.x/pixel-art/svg?seed=Empty${index}&backgroundColor=transparent`, 
-            // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
             lastWord: "현생으로 떠날 다음 천사는 누구?", 
-            memory: "일단은 예쁘게 비워둘게. 영원히 채워지지 않았으면 좋겠다! 🥺" 
+            memory: "일단은 예쁘게 비워둘게. 영원히 채워지지 않았으면 좋겠다🥺" 
         }));
 
         const gridContainer = document.getElementById('memorialGrid');
@@ -434,10 +412,7 @@
         const showMoreBtn = document.getElementById('showMoreBtn');
 
         function createCard(user) {
-            // 공석일 경우 물음표 스티커, 공석이 아닐 경우 레벨에 따라 스티커 부여
             const sticker = user.isEmpty ? '❔' : (user.level > 50 ? '🌟' : '🎀');
-            
-            // 공석일 경우 아바타를 회색빛 실루엣처럼 희미하게 만듭니다.
             const imgStyle = user.isEmpty 
                 ? "filter: grayscale(100%) opacity(30%) blur(1px) drop-shadow(0 5px 10px rgba(0,0,0,0.15));" 
                 : "filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));";
@@ -490,7 +465,6 @@
                 noResult.classList.add('hidden');
                 gridContainer.style.display = 'grid';
                 
-                // 처음에 4개만 보여주고 더보기 버튼으로 나머지 노출
                 const displayCount = isExpanded ? users.length : Math.min(users.length, 4);
                 
                 for(let i = 0; i < displayCount; i++) {
