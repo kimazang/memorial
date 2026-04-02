@@ -424,14 +424,29 @@
     <script>
         let isExpanded = false;
 
-        const departedUsers = Array.from({ length: 8 }, (_, index) => ({
-            isEmpty: true,
-            nickname: `@비어있는_구름_${String(index + 1).padStart(2, '0')}`, 
-            level: "??", 
-            img: `https://api.dicebear.com/7.x/pixel-art/svg?seed=Empty${index}&backgroundColor=transparent`, 
-            lastWord: "현생으로 떠날 다음 천사는 누구?", 
-            memory: "영원히 채워지지 않았으면 좋겠다🥺" 
-        }));
+        // 👼 여기서 천사(유저) 데이터를 직접 추가하고 수정할 수 있어요! 👼
+        const departedUsers = [
+            // ⭐️ 1번 칸: 채워진 천사 예시 ⭐️
+            {
+                isEmpty: false, // ❗ 중요: false 로 설정하면 예쁜 색상과 테두리 효과가 나타납니다!
+                nickname: "@승한", // 닉네임 입력
+                level: "162", // 레벨 입력
+                img: "https://github.com/kimazang/memorial/blob/main/angel1.png?raw=true", // 아바타 이미지 주소 입력 (나중에 실제 큐친 이미지 링크로 변경하세요!)
+                lastWord: "부디 저를 이 모습 그대로 기억해 주세요.", // 유저의 마지막 인사
+                memory: "4월 15일 승탄절 넘어갈 수 있어서 천만다행이야!" // 아장님이 기억하는 내용
+            },
+            
+            // ☁️ 2~8번 칸: 비어있는 구름들 (자동 생성 로직) ☁️
+            // (만약 2번 천사를 추가하고 싶다면 위 1번 칸 형태의 코드를 이 아래에 복사해서 붙여넣으세요!)
+            ...Array.from({ length: 7 }, (_, index) => ({
+                isEmpty: true, // ❗ 중요: true 로 설정하면 회색빛이 도는 빈 구름 상태가 됩니다.
+                nickname: `@비어있는_구름_${String(index + 2).padStart(2, '0')}`, 
+                level: "??", 
+                img: `https://api.dicebear.com/7.x/pixel-art/svg?seed=Empty${index + 2}&backgroundColor=transparent`, 
+                lastWord: "현생으로 떠날 다음 천사는 누구?", 
+                memory: "영원히 채워지지 않았으면 좋겠다🥺" 
+            }))
+        ];
 
         const gridContainer = document.getElementById('memorialGrid');
         const searchInput = document.getElementById('searchInput');
@@ -441,15 +456,31 @@
         const showMoreBtn = document.getElementById('showMoreBtn');
 
         function createCard(user) {
-            const sticker = user.isEmpty ? '❔' : (user.level > 50 ? '🌟' : '🎀');
+            // 스티커 설정 (레벨이 50 넘으면 별모양, 아니면 리본)
+            const sticker = user.isEmpty ? '❔' : (user.level > 50 ? '🌼' : '🌱');
+            
+            // 🎨 [디자인 차별화 1] 아바타 이미지: 빈 구름은 흑백/투명하게, 채워진 카드는 선명하게!
             const imgStyle = user.isEmpty 
                 ? "filter: grayscale(100%) opacity(30%) blur(1px) drop-shadow(0 5px 10px rgba(0,0,0,0.15));" 
-                : "filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));";
+                : "filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));";
+
+            // 🎨 [디자인 차별화 2] 카드 전체 테두리: 채워진 카드에만 핑크색 테두리와 빛나는 그림자 효과 부여!
+            const cardActiveStyle = user.isEmpty 
+                ? "" 
+                : "border-[#ffb6c1] shadow-[0_5px_20px_rgba(255,182,193,0.4)] bg-white/95";
+
+            // 🎨 [디자인 차별화 3] 아바타 배경색: 채워진 카드에만 따뜻한 핑크/보라 그라데이션 적용!
+            const avatarActiveStyle = user.isEmpty
+                ? ""
+                : "background: linear-gradient(to bottom, #fff0f5, #e6e6fa);";
 
             return `
-                <article class="glass-card p-4 flex flex-row lg:flex-col group">
+                <!-- 카드 바깥쪽 -->
+                <article class="glass-card p-4 flex flex-row lg:flex-col group ${cardActiveStyle}">
+                    
+                    <!-- 아바타 이미지 영역 -->
                     <div class="w-[100px] sm:w-[120px] lg:w-full flex-shrink-0">
-                        <div class="avatar-frame w-full mb-0 lg:mb-4">
+                        <div class="avatar-frame w-full mb-0 lg:mb-4" style="${avatarActiveStyle}">
                             <img src="${user.img}" alt="아바타" class="avatar-img group-hover:scale-105 transition-transform duration-500" style="${imgStyle}" crossorigin="anonymous">
                             <div class="absolute bottom-1 right-1 text-xl lg:text-2xl drop-shadow-md z-10 opacity-80 group-hover:opacity-100 group-hover:rotate-12 transition-all">
                                 ${sticker}
@@ -457,8 +488,11 @@
                         </div>
                     </div>
                     
+                    <!-- 텍스트 영역 -->
                     <div class="flex flex-col flex-grow pl-4 lg:pl-0 justify-between lg:justify-end relative z-20 min-w-0">
-                        <div class="card-name-tag flex justify-between items-center px-3 py-1.5 mb-2 lg:mb-3 relative z-10 ${user.isEmpty ? 'opacity-70 grayscale' : ''}">
+                        
+                        <!-- 닉네임 & 레벨 (채워지면 색상 선명해짐) -->
+                        <div class="card-name-tag flex justify-between items-center px-3 py-1.5 mb-2 lg:mb-3 relative z-10 ${user.isEmpty ? 'opacity-70 grayscale' : 'border-pink-200'}">
                             <span class="text-blue-900 font-bold text-xs sm:text-sm tracking-widest truncate pr-1 drop-shadow-[1px_1px_0_#fff]">
                                 ${user.nickname}
                             </span>
@@ -467,13 +501,15 @@
                             </span>
                         </div>
 
-                        <div class="cute-bubble mt-3 lg:mt-2 ${user.isEmpty ? 'opacity-70' : ''}">
+                        <!-- 마지막 인사 말풍선 -->
+                        <div class="cute-bubble mt-3 lg:mt-2 ${user.isEmpty ? 'opacity-70' : 'border-blue-200'}">
                             <span class="cute-bubble-title">💌 마지막 인사</span>
                             <p class="text-[10px] sm:text-[11px] text-blue-900 font-bold leading-snug line-clamp-2 mt-1 lg:mt-2 break-keep min-h-[2.4em] flex items-center">
                                 "${user.lastWord}"
                             </p>
                         </div>
                         
+                        <!-- 아장이의 기억 말풍선 -->
                         <div class="cute-bubble border-pink-300 bg-pink-50/90 mt-4 lg:mt-4 ${user.isEmpty ? 'opacity-70' : ''}">
                             <span class="cute-bubble-title bg-pink-400">🎀 아장이의 기억</span>
                             <p class="text-[10px] sm:text-[11px] text-pink-900 font-bold leading-relaxed line-clamp-2 mt-1 lg:mt-2 break-keep min-h-[2.4em] flex items-center">
@@ -506,7 +542,8 @@
                     showMoreContainer.classList.remove('hidden');
                 }
             }
-            totalCount.innerText = users.length;
+            // 채워진 천사 수만 세기 원하시면 `users.filter(u => !u.isEmpty).length` 로 바꿀 수 있어요!
+            totalCount.innerText = users.filter(u => !u.isEmpty).length; // 총 천사 수는 이제 '채워진 천사' 기준입니다!
         }
 
         renderMemorial(departedUsers);
